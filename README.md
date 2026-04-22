@@ -82,23 +82,5 @@ The dashboard provides data-driven answers to critical business questions:
 2. **Install Requirements:** `pip install -r requirements.txt`
 3. **Database Setup:** Run extraction scripts to populate your MySQL instance.
 4. **Launch App:** `streamlit run APP.py`
-
----
-
----
-
-## 📸 Dashboard Preview
-
-### 🗺️ Geographic Analysis
-An interactive choropleth map showing transaction distribution across India. Users can filter by Year and Quarter to see regional growth.
-
-![Geographic Analysis](mapVisualization.png)
-
-### 📈 Transaction Insights
-Detailed bar charts showing the Top 10 categories and transaction values, helping to identify market leaders in the fintech space.
-
-![Transaction Insights](caseStudy.png)
-
----
 ---
 **Developed by Gulshan Kumar Nayak**

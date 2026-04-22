@@ -1,40 +1,9 @@
-# PhonePe-Pulse-Data-Visualization
-PhonePay Project - SQL+Python
-
----
-
-### 📂 Data Hierarchy & Schema Formation
-
-The core challenge of this project was converting PhonePe's multi-layered JSON structure into a clean, relational database.
-
-#### **Source Data**
-The data is sourced from the official [PhonePe Pulse GitHub Repository](https://github.com/PhonePe/pulse). This repository contains real-time aggregate data from the PhonePe ecosystem.
-
-#### **1. The Source Hierarchy (JSON Structure)**
-The raw data is nested deep within the repository across thousands of files following this pattern:
-```text
-data/
+PhonePe Pulse Data Visualization and Exploration 📊An Interactive Fintech Analysis Dashboard for India (2018-2024)📌 Project OverviewThis project is an end-to-end Data Engineering and Visualization solution. It automates the extraction of data from the official PhonePe Pulse GitHub Repository, processes it through a robust ETL pipeline, stores it in a MySQL database, and presents actionable insights through an interactive Streamlit dashboard.🛠️ Technology StackLanguage: Python 3.xData Processing: Pandas, NumPy, JSONDatabase: MySQL (Relational Storage)Connectivity: SQLAlchemy, mysql-connector-pythonVisualization: Streamlit, Plotly Express (Choropleth Maps & Charts)🔄 Project Workflow (The ETL Pipeline)1. Data ExtractionI developed a custom script to clone the source repository and navigate its multi-layered JSON structure.Source: PhonePe Pulse GitHub RepositoryLogic: Iteratively traversed the directory using the os module to capture metadata (State, Year, Quarter) directly from folder paths.2. Data Transformation & CleaningFlattening: Processed thousands of nested JSON files into structured, flat DataFrames.Cleaning: Standardized state names, handled null values, and optimized data types (Float for amounts, BigInt for counts).Source Hierarchy Mapping:data/
 └── aggregated/ / map/ / top/
     └── transactions/ / users/
-        └── country/
-            └── india/
-                └── state/
-                    └── [state_name]/
-                        └── [year]/
-                            └── [quarter].json  <-- Target Data
-```
-
-
-## 🛠️ Technology Stack
-* **Python:** Data Extraction (os, json) and Transformation (Pandas).
-* **MySQL:** Relational Database Management for structured storage.
-* **Streamlit:** Interactive web application for data visualization.
-* **Plotly:** Advanced geographical and statistical charts (India Map, Bar charts).
-
-## 🚀 How to Use the Dashboard
-1. **Select Navigation:** Use the sidebar to choose between **Home**, **Data Analysis**, or **Case Studies**.
-2. **Filter Data:** Select specific **Years**, **Quarters**, and **Subjects** (Transaction/User) to update the visualizations in real-time.
-3. **Explore Maps:** Hover over the India Map to see district-wise breakdowns of transaction volumes.
-4. **Deep Dive:** Visit the "Case Studies" section to find answers to specific business questions (like top Insurance trends).
-
-
+        └── country/ / india/
+            └── state/
+                └── [state_name]/
+                    └── [year]/
+                        └── [quarter].json
+3. Schema FormationThe extracted data was structured into the following schema before being injected into the database:Column NameData TypeDescriptionStateStringThe Indian State/UT nameYearIntegerThe financial year (2018-2024)QuarterIntegerThe specific quarter (1, 2, 3, or 4)Transaction_TypeStringCategory (e.g., Merchant payments, P2P)Transaction_CountBigIntTotal number of transactionsTransaction_AmountFloatTotal monetary value in Rupees🔌 Database Connectivity & IntegrationTo ensure the dashboard remains fast and scalable, I implemented a dedicated MySQL pipeline:Workflow: Used mysql-connector-python and SQLAlchemy to automate data loading.Security: Managed database credentials using Environment Variables to ensure no sensitive information is hardcoded in the scripts.Performance: Optimized SQL queries to fetch only the required data, reducing memory load on the Streamlit application.💡 Business Problem Statements & InsightsThe dashboard provides data-driven answers to critical business questions:Market Leaders: Top 10 States/Districts by transaction volume and value.User Demographics: District-wise distribution of registered users across India.Brand Analysis: Mobile device preferences among PhonePe users.Growth Hotspots: Identifying high-growth regions for merchant expansion.🚀 How to Run LocallyClone Repo: git clone [Your-Repo-Link-Here]Install Requirements: pip install -r requirements.txtDatabase Setup: Run extraction scripts to populate your MySQL instance.Launch App: streamlit run APP.pyDeveloped by Gulshan Kumar Nayak | LinkedIn Profile

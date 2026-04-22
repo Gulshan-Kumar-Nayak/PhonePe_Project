@@ -18,7 +18,7 @@ data/
                 └── state/
                     └── [state_name]/
                         └── [year]/
-                            └── [quarter].json  <-- Target Data '''
+                            └── [quarter].json  <-- Target Data ```
 
 
 ## 🛠️ Technology Stack

@@ -39,3 +39,16 @@ data/
                 └── [state_name]/
                     └── [year]/
                         └── [quarter].json
+```
+
+### **3. Schema Formation**
+The extracted data was structured into the following schema before being injected into the database:
+
+| Column Name | Data Type | Description |
+| :--- | :--- | :--- |
+| **State** | String | The Indian State/UT name |
+| **Year** | Integer | The financial year (2018-2024) |
+| **Quarter** | Integer | The specific quarter (1, 2, 3, or 4) |
+| **Transaction_Type** | String | Category (e.g., Merchant payments, P2P) |
+| **Transaction_Count** | BigInt | Total number of transactions |
+| **Transaction_Amount** | Float | Total monetary value in Rupees |
